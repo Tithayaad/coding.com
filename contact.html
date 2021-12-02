@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Coding</title>
+    <script src="https://kit.fontawesome.com/bc86ed8afb.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/ico" href="img/icon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html">
+                <div class="logo">
+                    <img src="img/logo2.png" alt="">
+                </div>
+            </a>
+            <!-- <div class="links" id="links2"> -->
+                <ul>
+                    <!-- <i class="fas fa-times" onclick="hidemenu()"></i> -->
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <!-- </div> -->
+                <!-- <i class="fas fa-bars" onclick="showmenu()"></i> -->
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <form action="javascript:sendmail()" method="post">
+                <h1 class="head-all head-top">You can contact me any time!</h1>
+                <h1 class="head-contact">Contact me!</h1>
+                <div class="manage-form">
+                    <p class="details">Your Name:</p>
+                    <div class="input"><input name="name" type="text" id="Name" placeholder="Enter your name" required></div>
+                    <p class="details">Your Email:</p>
+                    <div class="input"><input name="email" type="email" id="Sender" placeholder="Enter your Email account" required></div>
+                    <p class="details">Your Phone Number:</p>
+                    <div class="input"><input name="subject" type="number" id="Subject" placeholder="Enter your Phone Number" required></div>
+                    <p class="details">Describe what you want to contact me for:</p>
+                    <div class="input2"><input name="message" id="Message" type="text" placeholder="Your message" required></div>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+            </div>
+    </main>
+    <footer>
+        <p class="text-center">Copyright &copy; Coding.com - All Rights Reserved</p>
+    </footer>
+    <!-- <script>
+        var links2 = document.getElementById("links2");
+
+function showmenu(){
+    links2.style.right = "0";
+}
+function hidemenu(){
+    links2.style.right = "-200px";
+}
+    </script> -->
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+<script
+src="https://code.jquery.com/jquery-2.2.4.min.js"
+integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+crossorigin="anonymous"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+
+<script>  
+
+   function sendmail(){
+  
+          var name = $('#Name').val();
+          var email = $('#Sender').val();
+          var subject = $('#Subject').val();
+    var message = $('#Message').val();
+
+          // var body = $('#body').val();
+
+          var Body='Name: '+name+'<br>Email: '+email+'<br>Phone no: '+subject+'<br>Message: '+message;
+          //console.log(name, phone, email, message);
+
+          Email.send({
+      SecureToken:"fbf31702-bb7f-4a4e-9c1c-4ccf17ee777f",
+              To: 'tirthayaadsingha@gmail.com',
+              From:'coding@gmail.com',
+              Subject: "New message form Coding.com " +name,
+              Body: Body
+          }).then(
+              message =>{
+                  //console.log (message);
+                  if(message=='OK'){
+                  alert('Your mail has been send! You will get contacted very soon. Thank you.');
+                  }
+                  else{
+                      console.error (message);
+                      alert('There is an error at sending message. ')
+                      
+                  }
+
+              }
+          );
+
+
+
+      }
+
+
+  </script>
+</script>
+</body>
+
+</html>
